@@ -1,5 +1,6 @@
 package com.example.codeclan.the_boolean.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Article {
     @Column
     private String datePublished;
 
-    @JsonIgnoreProperties("article")
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "journalist_id", nullable = false)
     Journalist journalist;

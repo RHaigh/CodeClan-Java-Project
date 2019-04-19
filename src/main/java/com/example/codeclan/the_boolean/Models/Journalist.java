@@ -1,5 +1,7 @@
 package com.example.codeclan.the_boolean.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ public class Journalist {
     @Column
     private String name;
 
+    @JsonIgnore
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
     List<Article> articles;
@@ -52,5 +55,9 @@ public class Journalist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void addArticle(Article newArticle){
+        this.articles.add(newArticle);
     }
 }
