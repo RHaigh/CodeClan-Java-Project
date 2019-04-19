@@ -1,10 +1,25 @@
-package Models;
+package com.example.codeclan.the_boolean.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "articles")
 public class Article {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String title;
+
+    @Column
     private String text;
+
+    @Column
     private String category;
+
+    @Column
     private String datePublished;
 
     public Article(String title, String text, String category, String datePublished) {
