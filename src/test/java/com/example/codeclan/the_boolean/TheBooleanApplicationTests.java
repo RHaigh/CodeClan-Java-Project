@@ -41,7 +41,8 @@ public class TheBooleanApplicationTests {
 		Journalist journalist = new Journalist("John");
 		journalistRepository.save(journalist);
 
-		Article article = new Article("Test", "test" ,"test", "Test",journalist);
+
+		Article article = new Article("Test", "test" ,"test", "Test", journalist);
 		articleRepository.save(article);
 
 	}

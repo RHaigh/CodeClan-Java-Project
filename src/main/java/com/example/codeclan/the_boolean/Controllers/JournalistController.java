@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/journalists")
@@ -19,6 +20,11 @@ public class JournalistController {
     @GetMapping
     public List<Journalist> getAllJournalist() {
         return journalistRepository.findAll();
+    }
+
+    @GetMapping(value = "/{id}")
+    Optional<Journalist> findJournalistById(@PathVariable Long id) {
+        return journalistRepository.findById(id);
     }
 
     @PostMapping(value = "/")

@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "articles")
-public class Article {
+public class Article implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +26,12 @@ public class Article {
     @Column
     private String datePublished;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("articles")
     @ManyToOne
     @JoinColumn(name = "journalist_id", nullable = false)
     Journalist journalist;
 
-    public Article(String title, String text, String category, String datePublished,Journalist journalist) {
+    public Article(String title, String text, String category, String datePublished, Journalist journalist) {
         this.title = title;
         this.text = text;
         this.category = category;
@@ -88,5 +89,9 @@ public class Article {
 
     public void setDatePublished(String datePublished) {
         this.datePublished = datePublished;
+    }
+
+    public void addJournalist(Journalist journalist) {
+        this.journalist = journalist;
     }
 }
