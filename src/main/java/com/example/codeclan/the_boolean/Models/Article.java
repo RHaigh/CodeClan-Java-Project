@@ -1,5 +1,7 @@
 package com.example.codeclan.the_boolean.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,15 +24,29 @@ public class Article {
     @Column
     private String datePublished;
 
-    public Article(String title, String text, String category, String datePublished) {
+    @JsonIgnoreProperties("article")
+    @ManyToOne
+    @JoinColumn(name = "journalist_id", nullable = false)
+    Journalist journalist;
+
+    public Article(String title, String text, String category, String datePublished,Journalist journalist) {
         this.title = title;
         this.text = text;
         this.category = category;
         this.datePublished = datePublished;
+        this.journalist = journalist;
     }
 
     public Article() {
 
+    }
+
+    public Journalist getJournalist() {
+        return journalist;
+    }
+
+    public void setJournalist(Journalist journalist) {
+        this.journalist = journalist;
     }
 
     public Long getId() {

@@ -24,16 +24,27 @@ public class TheBooleanApplicationTests {
 	public void contextLoads() {
 	}
 
-	@Test
-	public void canSaveArticle(){
-		Article article = new Article("Test", "test" ,"test", "Test");
-		articleRepository.save(article);
-	}
+//	@Test
+//	public void canSaveArticle(){
+//		Article article = new Article("Test", "test" ,"test", "Test");
+//		articleRepository.save(article);
+//	}
+//
+//	@Test
+//	public void canSaveJournalist(){
+//		Journalist journalist = new Journalist("John");
+//		journalistRepository.save(journalist);
+//	}
 
 	@Test
-	public void canSaveJournalist(){
+	public void canSaveJournalistandArticle(){
 		Journalist journalist = new Journalist("John");
 		journalistRepository.save(journalist);
+
+		Article article = new Article("Test", "test" ,"test", "Test",journalist);
+		articleRepository.save(article);
+
 	}
+
 
 }
