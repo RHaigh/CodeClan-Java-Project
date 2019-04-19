@@ -17,13 +17,30 @@ public class JournalistController {
     JournalistRepository journalistRepository;
 
     @GetMapping
-    public List<Journalist> getAllJournalist(){
+    public List<Journalist> getAllJournalist() {
         return journalistRepository.findAll();
     }
 
-    @PostMapping(value = "/journalists")
-    List <Journalist> journalist(@RequestBody Journalist journalist) {
+    @PostMapping(value = "/")
+    List<Journalist> journalist(@RequestBody Journalist journalist) {
         journalistRepository.save(journalist);
         return journalistRepository.findAll();
     }
+
+    @DeleteMapping(value = "/{id}")
+    List<Journalist> deleteJournalist(@PathVariable Long id) {
+        journalistRepository.deleteById(id);
+        return journalistRepository.findAll();
+    }
+
+    @PatchMapping(value = "/{id}")
+    List<Journalist> updateJournalist(@PathVariable Long id, @RequestBody Journalist newJournalist) {
+        Journalist journalist = new Journalist();
+        journalist = newJournalist;
+        journalist.setId(id);
+        journalistRepository.save(journalist);
+        return journalistRepository.findAll();
+    }
+
 }
+
