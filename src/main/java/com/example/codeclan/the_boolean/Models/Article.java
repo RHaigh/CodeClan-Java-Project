@@ -91,7 +91,4 @@ public class Article implements Serializable {
         this.datePublished = datePublished;
     }
 
-    public void addJournalist(Journalist journalist) {
-        this.journalist = journalist;
-    }
 }

@@ -20,7 +20,7 @@ public class Journalist implements Serializable {
     @Column
     private String name;
 
-    @JsonIgnoreProperties("journalist")
+    @JsonIgnoreProperties("journalists")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
     List<Article> articles;
@@ -31,7 +31,7 @@ public class Journalist implements Serializable {
 
     public Journalist(String name) {
         this.name = name;
-        this.articles = articles;
+        this.articles = new ArrayList<>();
     }
 
     public List<Article> getArticles() {
@@ -61,6 +61,5 @@ public class Journalist implements Serializable {
     public void addArticle(Article newArticle){
         this.articles.add(newArticle);
     }
-
 
 }
