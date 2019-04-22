@@ -8,12 +8,13 @@ const ArticleList = (props) => {
 
     return (
 
-      <li key = {article.id}>
+      <div key = {article.id}>
       <h3> {article.title} </h3>
       <h3> {article.text} </h3>
       <h3> {article. category} </h3>
       <h3> {article.date}</h3>
-      </li>
+      <img src = {article.image} height = "100px" ></img>
+      </div>
     )
   }
 )

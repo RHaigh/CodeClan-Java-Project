@@ -26,17 +26,21 @@ public class Article implements Serializable {
     @Column
     private String datePublished;
 
+    @Column
+    private String image;
+
     @JsonIgnoreProperties("articles")
     @ManyToOne
     @JoinColumn(name = "journalist_id", nullable = false)
     Journalist journalist;
 
-    public Article(String title, String text, String category, String datePublished, Journalist journalist) {
+    public Article(String title, String text, String category, String datePublished, Journalist journalist, String image) {
         this.title = title;
         this.text = text;
         this.category = category;
         this.datePublished = datePublished;
         this.journalist = journalist;
+        this.image = image;
     }
 
     public Article() {
@@ -91,4 +95,11 @@ public class Article implements Serializable {
         this.datePublished = datePublished;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
