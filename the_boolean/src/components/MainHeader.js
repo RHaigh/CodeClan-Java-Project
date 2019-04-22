@@ -3,7 +3,7 @@ import React from "react";
 const MainHeader = () => {
   return(
     <div>
-    <h1 class = "header" > THE : BOOLEAN </h1>
+    <h1 className = "header" > THE : BOOLEAN </h1>
     </div>
   )
 }

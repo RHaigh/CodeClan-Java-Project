@@ -2,25 +2,25 @@ import React, {Component} from "react";
 import MainHeader from '../components/MainHeader.js'
 import NavBar from '../components/NavBar.js'
 import ArticleList from '../components/ArticleList.js'
+import Request from "../helpers/Request.js";
 class NewsBox extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-        data: [{
-        title: "Title",
-        text: "Some Text here",
-        category: "Testing Cat",
-        date: "22-04-19"
-      },
-      {
-      title: "Title",
-      text: "Some Text here",
-      category: "Testing Cat",
-      date: "22-04-19"
-      }]
+        data: []
     };
   }
+
+  componentDidMount() {
+    let request = new Request()
+    const url = "/articles";
+    request.get(url)
+    .then((data) => {
+      this.setState({data: data})
+      console.log(data);
+  })
+}
 
   render() {
     return (
