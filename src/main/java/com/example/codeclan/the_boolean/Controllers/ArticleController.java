@@ -34,7 +34,7 @@ public class ArticleController {
     List <Article> createArticle(@RequestBody Article article, @PathVariable long journalistId) {
         Journalist journalist = journalistRepository.getOne(journalistId);
         journalist.addArticle(article);
-        article.addJournalist(journalist);
+        article.setJournalist(journalist);
         articleRepository.save(article);
         return articleRepository.findAll();
     }
@@ -52,6 +52,11 @@ public class ArticleController {
         article.setId(id);
         articleRepository.save(article);
         return articleRepository.findAll();
+    }
+
+    @GetMapping(value = "/category/{category}")
+    public List <Article> getArticlesByCategory(@PathVariable String category) {
+        return articleRepository.findArticlesByCategory(category);
     }
 
 }

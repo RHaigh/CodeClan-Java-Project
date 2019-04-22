@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TheBooleanApplicationTests {
@@ -24,28 +28,15 @@ public class TheBooleanApplicationTests {
 	public void contextLoads() {
 	}
 
-//	@Test
-//	public void canSaveArticle(){
-//		Article article = new Article("Test", "test" ,"test", "Test");
-//		articleRepository.save(article);
-//	}
-//
-//	@Test
-//	public void canSaveJournalist(){
-//		Journalist journalist = new Journalist("John");
-//		journalistRepository.save(journalist);
-//	}
-
 	@Test
-	public void canSaveJournalistandArticle(){
-		Journalist journalist = new Journalist("John");
-		journalistRepository.save(journalist);
-
-
-		Article article = new Article("Test", "test" ,"test", "Test", journalist);
-		articleRepository.save(article);
-
+	public void canGetArticlesByCategory() {
+		List<Article> found = articleRepository.findArticlesByCategory("Politics");
+		assertEquals(1, found.size());
 	}
 
+	@Test
+	public void canSortByDate() {
+
+	}
 
 }
