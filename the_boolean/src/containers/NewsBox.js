@@ -12,6 +12,12 @@ class NewsBox extends Component {
         text: "Some Text here",
         category: "Testing Cat",
         date: "22-04-19"
+      },
+      {
+      title: "Title",
+      text: "Some Text here",
+      category: "Testing Cat",
+      date: "22-04-19"
       }]
     };
   }

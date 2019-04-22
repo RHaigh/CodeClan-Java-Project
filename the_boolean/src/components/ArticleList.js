@@ -23,8 +23,7 @@ const ArticleList = (props) => {
     <div>
     <h3> Rendering from ArticleList </h3>
     <ul>
-    {articles}
-    <li> <ArticleSummary article = "hello"/> </li>
+    <li> <ArticleSummary article = {articles}/> </li>
     </ul>
     </div>
   )

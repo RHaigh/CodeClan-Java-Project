@@ -7,9 +7,9 @@ const ArticleSummary = (props) => {
 
   return(
     <div>
-    <h4> CAT FOUND </h4>
-    <p> IMAGE </p>
-    <p> lil bit of text </p>
+    <ul>
+    {props.article}
+    </ul>
     </div>
   )
 }
