@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const MainHeader = () => {
   return(
     <div>
     <h1 class = "header" > THE : BOOLEAN </h1>
@@ -8,4 +8,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default MainHeader;

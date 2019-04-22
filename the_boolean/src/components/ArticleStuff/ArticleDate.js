@@ -3,7 +3,7 @@ import React from "react";
 const ArticleDate = (props) => {
   return (
     <div>
-    <p> This is the Article Date </p>
+    <p> This is the Article Date {props.date} </p>
     </div>
   )
 }

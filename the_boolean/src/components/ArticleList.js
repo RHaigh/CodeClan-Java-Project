@@ -4,23 +4,28 @@ import ArticleSummary from './ArticleStuff/ArticleSummary'
 import ArticleItem from './ArticleStuff/ArticleItem'
 
 const ArticleList = (props) => {
-  // const articles = props.articles.map((article) => {
-  //   return (
-  //     <li key = {article.id}>
-  //     <div className = "component" >
-  //     <Article article = {article}/>
-  //     </div>
-  //     </li>
-  //   )
-  // }
+  const articles = props.data.map((article) => {
+
+    return (
+
+      <li key = {article.id}>
+      <h3> {article.title} </h3>
+      <h3> {article.text} </h3>
+      <h3> {article. category} </h3>
+      <h3> {article.date}</h3>
+      </li>
+    )
+  }
+)
+
+
   return (
     <div>
     <h3> Rendering from ArticleList </h3>
     <ul>
-    <li> {props.test} </li>
+    {articles}
     <li> <ArticleSummary article = "hello"/> </li>
     </ul>
-    <ArticleItem article = "Boo"/>
     </div>
   )
 }
