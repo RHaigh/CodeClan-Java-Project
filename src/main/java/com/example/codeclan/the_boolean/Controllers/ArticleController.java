@@ -4,9 +4,14 @@ import com.example.codeclan.the_boolean.Models.Article;
 import com.example.codeclan.the_boolean.Models.Journalist;
 import com.example.codeclan.the_boolean.Repositories.ArticleRepository;
 import com.example.codeclan.the_boolean.Repositories.JournalistRepository;
+import org.hibernate.mapping.Array;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +27,10 @@ public class ArticleController {
 
     @GetMapping
     public List<Article> getAllArticles() {
-        return articleRepository.findAll();
+
+        List <Article> articles = new ArrayList<>();
+        articles = articleRepository.findAll(Sort.by(Sort.Direction.ASC,"datePublished"));
+        return articles;
     }
 
     @GetMapping(value = "/{id}")
