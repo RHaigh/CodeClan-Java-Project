@@ -13,10 +13,10 @@ class NewsBox extends Component {
   render() {
     return (
       <div>
+      <h2> News Box </h2>
       <MainHeader/>
       <NavBar/>
       <ArticleList test = "renderNewsBox" />
-      <h2> Rendering from box test</h2>
       </div>
 
     )
