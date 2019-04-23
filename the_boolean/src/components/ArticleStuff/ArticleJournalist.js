@@ -3,7 +3,7 @@ import React from "react";
 const ArticleJournalist = (props) => {
   return (
     <div>
-    <p> This is the Article Journalist </p>
+    <p> {props.journalist.name} </p>
     </div>
   )
 }

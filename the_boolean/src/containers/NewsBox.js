@@ -14,11 +14,11 @@ class NewsBox extends Component {
     this.handleArticleClick = this.handleArticleClick.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.handleCategoryClick = this.handleCategoryClick.bind(this);
+    this.deleteArticle = this.deleteArticle.bind(this);
   }
 
   componentDidMount() {
     this.pageRefreshToAllArticles();
-
   }
 
   handleArticleClick(articleNumber) {
@@ -51,16 +51,21 @@ class NewsBox extends Component {
     })
   }
 
-  //   this.setState({ 'updated': 'state'}, () => {
-  //   console.log(this.state.updated);
-  // });
+  deleteArticle(articleId) {
+    let request = new Request()
+    const url = "articles/" + articleId
+    request.delete(url)
+    .then ((data) => {
+      this.pageRefreshToAllArticles()
+    })
+  }
 
   render() {
     return (
       <div>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
       <NavBar handleCategoryClick={this.handleCategoryClick}/>
-      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state}/>
+      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle}/>
       </div>
     )
   }

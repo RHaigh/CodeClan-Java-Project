@@ -13,12 +13,13 @@ const ArticleItem = (props) => {
 
   return(
     <div>
-    <ArticleDate date= {props.article.datePublished}/>
-    <ArticleCategory category ={props.article.category}/>
-    <ArticleJournalist/>
     <ArticleHeader title = {props.article.title} />
+    <ArticleDate date= {props.article.datePublished}/>
     <ArticleImage image = {props.article.image}/>
     <ArticleText text={props.article.text}/>
+    <ArticleJournalist journalist = {props.article.journalist}/>
+    <button onClick = {(evt) => {props.handleDelete(props.article.id)}}> Delete Article </button>
+
     </div>
   )
 

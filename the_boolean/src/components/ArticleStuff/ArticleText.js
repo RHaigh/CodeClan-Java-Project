@@ -3,7 +3,7 @@ import React from "react";
 const ArticleText = (props) => {
   return (
     <div>
-    {props.text}
+    <p> {props.text} </p>
     </div>
   )
 }
