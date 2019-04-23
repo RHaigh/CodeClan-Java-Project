@@ -7,8 +7,7 @@ const ArticleList = (props) => {
   const articles = props.data.map((article) => {
 
     return (
-
-      <div key = {article.id}>
+      <div onClick = {(evt) => {props.handleArticleClick(article.id)}} key = {article.id} >
       <h3> {article.title} </h3>
       <h3> {article.text} </h3>
       <h3> {article. category} </h3>
@@ -18,13 +17,11 @@ const ArticleList = (props) => {
     )
   }
 )
-
-
   return (
     <div>
     <h3> Rendering from ArticleList </h3>
     <ul>
-    <li> <ArticleSummary article = {articles}/> </li>
+    <li> <ArticleSummary article = {articles} /> </li>
     </ul>
     </div>
   )

@@ -29,7 +29,7 @@ public class ArticleController {
     public List<Article> getAllArticles() {
 
         List <Article> articles = new ArrayList<>();
-        articles = articleRepository.findAll(Sort.by(Sort.Direction.ASC,"datePublished"));
+        articles = articleRepository.findAll(Sort.by(Sort.Direction.DESC,"datePublished"));
         return articles;
     }
 

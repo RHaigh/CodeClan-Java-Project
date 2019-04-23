@@ -10,6 +10,7 @@ class NewsBox extends Component {
     this.state = {
         data: []
     };
+    this.handleArticleClick = this.handleArticleClick.bind(this);
   }
 
   componentDidMount() {
@@ -22,15 +23,19 @@ class NewsBox extends Component {
   })
 }
 
+  handleArticleClick(articleNumber) {
+    // this.loadArticle(event.target.value)
+    console.log(articleNumber);
+  }
+
   render() {
     return (
       <div>
       <h2> News Box </h2>
       <MainHeader/>
       <NavBar/>
-      <ArticleList test = "renderNewsBox" data = {this.state.data}/>
+      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state.data}/>
       </div>
-
     )
   }
 }
