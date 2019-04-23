@@ -8,9 +8,7 @@ const ArticleList = (props) => {
     return (
       <div onClick = {(evt) => {props.handleArticleClick(article.id)}} key = {article.id} >
       <h3> {article.title} </h3>
-      <h3> {article.text} </h3>
-      <h3> {article. category} </h3>
-      <h3> {article.date}</h3>
+      <h3> {article.datePublished}</h3>
       <img src = {article.image} height = "100px" ></img>
       </div>
     )
@@ -20,8 +18,8 @@ const ArticleList = (props) => {
     return (
       <div>
       <h3> Rendering single article </h3>
-      <ul>
-      </ul>
+      <ArticleItem article = {props.data.selectedArticle}/>
+      {console.log(props.data)}
       </div>
    )
   }

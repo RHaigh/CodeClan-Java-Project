@@ -25,13 +25,9 @@ class NewsBox extends Component {
 }
 
   handleArticleClick(articleNumber) {
-    this.loadArticle(articleNumber)
+    this.setState({selectedArticle: this.state.data[articleNumber - 1]})
   }
 
-  loadArticle(articleNumber) {
-    this.setState({selectedArticle: this.state.data[articleNumber - 1]})
-    console.log(this.state);
-  }
   render() {
     return (
       <div>

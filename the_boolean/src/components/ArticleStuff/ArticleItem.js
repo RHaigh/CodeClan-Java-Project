@@ -14,12 +14,12 @@ const ArticleItem = (props) => {
   return(
     <div>
     <h2> Article Item </h2>
-    <ArticleDate date= {props.date}/>
-    <ArticleCategory category ={props.category}/>
+    <ArticleDate date= {props.article.datePublished}/>
+    <ArticleCategory category ={props.article.category}/>
     <ArticleJournalist/>
-    <ArticleHeader title = {props.title} />
+    <ArticleHeader title = {props.article.title} />
     <ArticleImage/>
-    <ArticleText text={props.text}/>
+    <ArticleText text={props.article.text}/>
     </div>
   )
 
