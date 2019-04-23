@@ -39,6 +39,7 @@ public class ArticleController {
         return articleRepository.findById(id);
     }
 
+
     @PostMapping(value = "/{journalistId}")
     List <Article> createArticle(@RequestBody Article article, @PathVariable long journalistId) {
         Journalist journalist = journalistRepository.getOne(journalistId);

@@ -13,6 +13,7 @@ class NewsBox extends Component {
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
+    this.handleCategoryClick = this.handleCategoryClick.bind(this);
 
   }
 
@@ -36,11 +37,27 @@ class NewsBox extends Component {
     this.setState({selectedArticle: null});
   }
 
+  handleCategoryClick(evt) {
+    let request = new Request()
+    const url = "articles/category/" + evt.target.id;
+    console.log(url)
+    request.get(url)
+    .then((data) => {
+      this.setState({data: data}, () => {
+        console.log("hallo", data);
+      })
+    })
+  }
+
+//   this.setState({ 'updated': 'state'}, () => {
+//   console.log(this.state.updated);
+// });
+
   render() {
     return (
       <div>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
-      <NavBar/>
+      <NavBar handleCategoryClick={this.handleCategoryClick}/>
       <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state}/>
       </div>
     )

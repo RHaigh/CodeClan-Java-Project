@@ -30,12 +30,12 @@ public class TheBooleanApplicationTests {
 
 	@Test
 	public void canGetArticlesByCategory() {
-		List<Article> found = articleRepository.findArticlesByCategory("Politics");
-		assertEquals(1, found.size());
+		List<Article> found = articleRepository.findArticlesByCategory("Health");
+		assertEquals(2, found.size());
 	}
 
 	@Test
-	public void canSortByDate() {
+	public void findByCategory() {
 
 	}
 
