@@ -1,9 +1,10 @@
 import React from "react";
 
 const MainHeader = (props) => {
+
   return(
     <div onClick = {props.handleHeaderClick}>
-    <h1 className = "header" > THE : BOOLEAN </h1>
+    <img src="./images/logo.png" width="300px" />
     </div>
   )
 }
