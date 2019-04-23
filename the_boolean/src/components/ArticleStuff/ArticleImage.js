@@ -3,7 +3,7 @@ import React from "react";
 const ArticleImage = (props) => {
   return (
     <div>
-    <img src = {props.image} height = "100px" ></img>
+    <img src = {props.image} height = "300px" ></img>
     </div>
   )
 }

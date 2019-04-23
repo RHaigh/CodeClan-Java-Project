@@ -12,6 +12,8 @@ class NewsBox extends Component {
         selectedArticle: null
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
+
   }
 
   componentDidMount() {
@@ -28,11 +30,15 @@ class NewsBox extends Component {
     this.setState({selectedArticle: this.state.data[articleNumber - 1]})
   }
 
+  handleHeaderClick(evt){
+    this.setState({selectedArticle: null});
+  }
+
   render() {
     return (
       <div>
       <h2> News Box </h2>
-      <MainHeader/>
+      <MainHeader handleHeaderClick={this.handleHeaderClick}/>
       <NavBar/>
       <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state}/>
       </div>
