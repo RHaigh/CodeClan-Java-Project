@@ -30,6 +30,7 @@ public class ArticleController {
 
         List <Article> articles = new ArrayList<>();
         articles = articleRepository.findAll(Sort.by(Sort.Direction.DESC,"datePublished"));
+
         return articles;
     }
 

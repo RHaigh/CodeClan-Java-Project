@@ -22,12 +22,14 @@ class NewsBox extends Component {
     request.get(url)
     .then((data) => {
       this.setState({data: data})
+
       console.log(data);
   })
 }
 
   handleArticleClick(articleNumber) {
-    this.setState({selectedArticle: this.state.data[articleNumber - 1]})
+    console.log(articleNumber);
+    this.setState({selectedArticle: this.state.data[articleNumber -1]})
   }
 
   handleHeaderClick(evt){

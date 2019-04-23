@@ -17,7 +17,6 @@ const ArticleList = (props) => {
   if(props.data.selectedArticle != null){
     return (
       <div>
-      <h3> Rendering single article </h3>
       <ArticleItem article = {props.data.selectedArticle}/>
       {console.log(props.data)}
       </div>
@@ -25,7 +24,6 @@ const ArticleList = (props) => {
   }
   return (
     <div>
-    <h3> Rendering from ArticleList </h3>
     <ul>
     <li> <ArticleSummary article = {articles} /> </li>
     </ul>
