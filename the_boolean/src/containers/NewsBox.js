@@ -8,7 +8,8 @@ class NewsBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: []
+        data: [],
+        selectedArticle: null
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
   }
@@ -24,17 +25,20 @@ class NewsBox extends Component {
 }
 
   handleArticleClick(articleNumber) {
-    // this.loadArticle(event.target.value)
-    console.log(articleNumber);
+    this.loadArticle(articleNumber)
   }
 
+  loadArticle(articleNumber) {
+    this.setState({selectedArticle: this.state.data[articleNumber - 1]})
+    console.log(this.state);
+  }
   render() {
     return (
       <div>
       <h2> News Box </h2>
       <MainHeader/>
       <NavBar/>
-      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state.data}/>
+      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state}/>
       </div>
     )
   }

@@ -42,7 +42,7 @@ public class DataLoader implements ApplicationRunner {
         Article article2 = new Article("Richard becomes bitcoin trillionaire", "No-one surprised" ,"Finance", "19-04-2019", journalist2, "./images/bitcoin.jpg");
         articleRepository.save(article2);
 
-        Article article3 = new Article("The reason why Sandy still washes his hair might surprise you", "Sponsored by Pantene Pro V" ,"Beauty", "02-04-2017", journalist3, "./images/hairwash.jpg");
+        Article article3 = new Article(" 'Don't Worry About Indentation, Pass It Here Mate.' - A Feature by Sandy McMillian ", "Hello" ,"Education", "02-04-2017", journalist3, "");
         articleRepository.save(article3);
 
         Article article4 = new Article("Cat Found", "Grandma rejoices" ,"Lifestyle", "17-01-2018", journalist4, "./images/cat.jpg");

@@ -4,8 +4,7 @@ import ArticleSummary from './ArticleStuff/ArticleSummary'
 import ArticleItem from './ArticleStuff/ArticleItem'
 
 const ArticleList = (props) => {
-  const articles = props.data.map((article) => {
-
+  const articles = props.data.data.map((article) => {
     return (
       <div onClick = {(evt) => {props.handleArticleClick(article.id)}} key = {article.id} >
       <h3> {article.title} </h3>
@@ -17,6 +16,15 @@ const ArticleList = (props) => {
     )
   }
 )
+  if(props.data.selectedArticle != null){
+    return (
+      <div>
+      <h3> Rendering single article </h3>
+      <ul>
+      </ul>
+      </div>
+   )
+  }
   return (
     <div>
     <h3> Rendering from ArticleList </h3>
@@ -24,7 +32,7 @@ const ArticleList = (props) => {
     <li> <ArticleSummary article = {articles} /> </li>
     </ul>
     </div>
-  )
+ )
 }
 
 export default ArticleList;
