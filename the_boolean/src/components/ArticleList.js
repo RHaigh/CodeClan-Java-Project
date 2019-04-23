@@ -4,9 +4,10 @@ import ArticleSummary from './ArticleStuff/ArticleSummary'
 import ArticleItem from './ArticleStuff/ArticleItem'
 
 const ArticleList = (props) => {
-  const articles = props.data.data.map((article) => {
+  const articles = props.data.data.map((article, index) => {
+    // console.log(article.title, index);
     return (
-      <div onClick = {(evt) => {props.handleArticleClick(article.id)}} key = {article.id} >
+      <div onClick = {(evt) => {props.handleArticleClick(index)}} key = {index} >
       <h3> {article.title} </h3>
       <h3> {article.datePublished}</h3>
       <img src = {article.image} height = "200px" ></img>

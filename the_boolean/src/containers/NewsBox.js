@@ -29,7 +29,7 @@ class NewsBox extends Component {
 
   handleArticleClick(articleNumber) {
     console.log(articleNumber);
-    this.setState({selectedArticle: this.state.data[articleNumber -1]})
+    this.setState({selectedArticle: this.state.data[articleNumber]})
   }
 
   handleHeaderClick(evt){
@@ -39,7 +39,6 @@ class NewsBox extends Component {
   render() {
     return (
       <div>
-      <h2> News Box </h2>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
       <NavBar/>
       <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state}/>
