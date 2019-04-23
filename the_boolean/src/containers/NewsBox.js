@@ -8,25 +8,18 @@ class NewsBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: [],
-        selectedArticle: null
+      data: [],
+      selectedArticle: null
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.handleCategoryClick = this.handleCategoryClick.bind(this);
-
   }
 
   componentDidMount() {
-    let request = new Request()
-    const url = "/articles";
-    request.get(url)
-    .then((data) => {
-      this.setState({data: data})
+    this.pageRefreshToAllArticles();
 
-      console.log(data);
-  })
-}
+  }
 
   handleArticleClick(articleNumber) {
     console.log(articleNumber);
@@ -34,7 +27,17 @@ class NewsBox extends Component {
   }
 
   handleHeaderClick(evt){
+    this.pageRefreshToAllArticles();
     this.setState({selectedArticle: null});
+  }
+
+  pageRefreshToAllArticles() {
+    let request = new Request()
+    const url = "/articles";
+    request.get(url)
+    .then((data) => {
+      this.setState({data: data})
+    })
   }
 
   handleCategoryClick(evt) {
@@ -44,14 +47,13 @@ class NewsBox extends Component {
     request.get(url)
     .then((data) => {
       this.setState({data: data}, () => {
-        console.log("hallo", data);
       })
     })
   }
 
-//   this.setState({ 'updated': 'state'}, () => {
-//   console.log(this.state.updated);
-// });
+  //   this.setState({ 'updated': 'state'}, () => {
+  //   console.log(this.state.updated);
+  // });
 
   render() {
     return (

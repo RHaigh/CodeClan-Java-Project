@@ -51,19 +51,19 @@ public class DataLoader implements ApplicationRunner {
         Article article5 = new Article("Backend Developer Attempting to Write Septuple Nested Loop Left in 'Permanent Trip'", "A Java Developer in Kilmarnock has been pronounced by colleagues as 'Permafried' after attempting to write not a quadruple, quintuple or sextuple (or triple, for that matter) but a SEPTUPLE nested loop. David Johnson, 47, with no previous association with psychedelia, began 'random laughter' at around 3:45pm on Monday before posting a series of nonsensical questions on Stack Overflow. After a snooze, he was described by colleagues as 'A little too chilled'. David did grant The Boolean interview, but only seemed to be able to muster the words 'public', 'static', 'void', and 'for' - and not necessarily in that order, or in a logical manner.", "health", "2019-03-15", journalist1, "/images/trippingguy.png");
         articleRepository.save(article5);
 
-        Article article6 = new Article("Coder CageFight- The Coder Dojo Alternative coming this summer '19", "", "community", "2019-03-13", journalist1, "");
+        Article article6 = new Article("Coder CageFight- The Coder Dojo Alternative coming this summer '19", "", "community", "2019-03-13", journalist1, "images/cagefight.jpg");
         articleRepository.save(article6);
 
-        Article article7 = new Article("McDonald's new raspberry pie 'should not be marketed as educational tool', says Gove", "", "education", "2019-03-12", journalist2, "");
+        Article article7 = new Article("McDonald's new raspberry pie 'should not be marketed as educational tool', says Gove", "", "education", "2019-03-12", journalist2, "images/raspberrypie.jpg");
         articleRepository.save(article7);
 
-        Article article8 = new Article("COBOL- the sexiest programming language of 2019?", "", "career news", "2019-03-01", journalist3, "");
+        Article article8 = new Article("COBOL- the sexiest programming language of 2019?", "", "career news", "2019-03-01", journalist3, "images/cobol.jpeg");
         articleRepository.save(article8);
 
-        Article article9 = new Article("US President defends self after 9-year-old Devtools Hacker changes BBC Weather Site to Trigger US State of Emergency", "", "controversy", "2019-04-10", journalist4, "");
+        Article article9 = new Article("US President defends self after 9-year-old Devtools Hacker changes BBC Weather Site to Trigger US State of Emergency", "", "controversy", "2019-04-10", journalist4, "images/younghacker.jpg");
         articleRepository.save(article9);
 
-        Article article10 = new Article("Here are the 5 Eyeball Exercises the Most Successful Developers do While They Code", "", "health", "2019-02-01", journalist1, "");
+        Article article10 = new Article("Here are the 5 Eyeball Exercises the Most Successful Developers do While They Code", "", "health", "2019-02-01", journalist1, "images/eyeball.jpg");
         articleRepository.save(article10);
     }
 
