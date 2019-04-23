@@ -17,7 +17,7 @@ public class Article implements Serializable {
     @Column
     private String title;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(1024)")
     private String text;
 
     @Column
