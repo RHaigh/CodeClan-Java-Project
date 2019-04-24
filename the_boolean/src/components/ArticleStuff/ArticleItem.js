@@ -19,7 +19,6 @@ const ArticleItem = (props) => {
     <ArticleText text={props.article.text}/>
     <ArticleJournalist journalist = {props.article.journalist}/>
     <button onClick = {(evt) => {props.handleDelete(props.article.id)}}> Delete Article </button>
-
     </div>
   )
 

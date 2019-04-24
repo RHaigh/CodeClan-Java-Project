@@ -19,7 +19,6 @@ const ArticleList = (props) => {
     return (
       <div>
       <ArticleItem article = {props.data.selectedArticle} handleDelete = {props.handleDelete}/>
-      {console.log(props.data)}
       </div>
    )
   }

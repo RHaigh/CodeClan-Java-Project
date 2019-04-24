@@ -22,7 +22,7 @@ class NewsBox extends Component {
   }
 
   handleArticleClick(articleNumber) {
-    console.log(articleNumber);
+    // console.log(articleNumber);
     this.setState({selectedArticle: this.state.data[articleNumber]})
   }
 
@@ -56,7 +56,8 @@ class NewsBox extends Component {
     const url = "articles/" + articleId
     request.delete(url)
     .then ((data) => {
-      this.pageRefreshToAllArticles()
+      this.pageRefreshToAllArticles();
+      this.setState({selectedArticle: null});
     })
   }
 
