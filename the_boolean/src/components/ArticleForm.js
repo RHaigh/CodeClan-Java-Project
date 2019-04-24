@@ -41,7 +41,6 @@ const journalistOptions = props.newArticle.data.journalists.map((journalist, ind
     <option value = "controversy" > Controversy </option>
     <option value = "education" > Education </option>
     <option value = "career-news" > Career News </option>
-
     </select>
     <br/>
     <p> Select a Journalist </p>

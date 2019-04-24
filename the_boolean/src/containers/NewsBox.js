@@ -30,6 +30,7 @@ class NewsBox extends Component {
   componentDidMount() {
     this.pageRefreshToAllArticles();
     this.getJournalists();
+    console.log(this.state.data);
   }
 
   handleArticleClick(articleNumber) {
@@ -47,6 +48,9 @@ class NewsBox extends Component {
     request.get(url)
     .then((data) => {
       this.setState({data: data})
+      this.setState({selectedArticle: null});
+      this.setState({editedArticle: null});
+      this.setState({newArticle: false})
     })
   }
 
@@ -66,6 +70,9 @@ class NewsBox extends Component {
     request.get(url)
     .then((data) => {
       this.setState({data: data}, () => {
+        this.setState({selectedArticle: null});
+        this.setState({editedArticle: null});
+        this.setState({newArticle: false})
       })
     })
   }
@@ -79,8 +86,6 @@ class NewsBox extends Component {
     const url = "articles/" + article.id
     request.patch(url, article)
     .then ((data) => {
-      this.setState({selectedArticle: null});
-      this.setState({editedArticle: null});
       this.pageRefreshToAllArticles();
     })
   }
@@ -95,10 +100,8 @@ class NewsBox extends Component {
     const url = "articles/" + article.journalist
     request.post(url, article)
     .then ((data) => {
-      this.setState({selectedArticle: null});
-      this.setState({editedArticle: null});
       this.pageRefreshToAllArticles();
-      this.setState({newArticle: false})
+
     })
   }
 

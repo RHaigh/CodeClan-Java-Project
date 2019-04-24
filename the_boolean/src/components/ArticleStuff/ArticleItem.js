@@ -14,7 +14,7 @@ const ArticleItem = (props) => {
     return null;
   }
 
-  if (props.allProps.selectedArticle != null && props.allProps.editedArticle != null) {
+  if (props.allProps.editedArticle != null) {
     console.log("if statement check", props.allProps)
     return (
       <div>

@@ -9,7 +9,8 @@ import React, {Component} from "react";
         text: props.article.text,
         datePublished: props.article.datePublished,
         image: props.article.image,
-        journalist: props.article.journalist
+        journalist: props.article.journalist,
+        category: props.article.category
       }
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,7 +23,8 @@ import React, {Component} from "react";
         "text": this.state.text,
         "datePublished": this.state.datePublished,
         "image": this.state.image,
-        "journalist": this.state.journalist
+        "journalist": this.state.journalist,
+        "category": this.state.category
       }
       console.log(article);
       this.props.saveArticle(article);
@@ -39,6 +41,13 @@ import React, {Component} from "react";
         <br/>
         <input type = "text" value = {this.state.datePublished} name = "date" onChange = {evt => this.setState({datePublished: evt.target.value})}/>
         <br/>
+        <select name = "category">
+        <option value = "health" > Health </option>
+        <option value = "community" > Community </option>
+        <option value = "controversy" > Controversy </option>
+        <option value = "education" > Education </option>
+        <option value = "career-news" > Career News </option>
+        </select>
         <button type = "submit"> Save </button>
         </form>
         </div>
