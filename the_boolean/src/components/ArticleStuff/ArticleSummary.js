@@ -6,10 +6,8 @@ const ArticleSummary = (props) => {
   }
 
   return(
-    <div>
-    <ul>
+    <div className="container" >
     {props.article}
-    </ul>
     </div>
   )
 }

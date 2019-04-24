@@ -24,7 +24,7 @@ const ArticleItem = (props) => {
   }
 
   return(
-    <div>
+    <div classname="article-list">
     <ArticleHeader title = {props.article.title} />
     <ArticleDate date= {props.article.datePublished}/>
     <ArticleImage image = {props.article.image}/>

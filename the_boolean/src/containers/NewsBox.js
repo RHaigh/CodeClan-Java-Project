@@ -119,8 +119,8 @@ class NewsBox extends Component {
     return (
       <div>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
-      <NavBar handleCategoryClick={this.handleCategoryClick}/>
-      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle} handleEdit = {this.handleEditArticle} saveArticle = {this.saveArticle} newArticle = {this.newArticle} createArticle = {this.createArticle}/>
+      <NavBar handleCategoryClick={this.handleCategoryClick} newArticle = {this.newArticle}/>
+      <ArticleList handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle} handleEdit = {this.handleEditArticle} saveArticle = {this.saveArticle} newArticle = {this.newArticle} createArticle = {this.createArticle}/>
       </div>
     )
   }

@@ -16,10 +16,11 @@ const ArticleList = (props) => {
     )
   }
 )
+
   if(props.data.selectedArticle != null){
     return (
       <div>
-      <ArticleItem article = {props.data.selectedArticle} handleDelete = {props.handleDelete} handleEdit = {props.handleEdit} allProps = {props.data} saveArticle = {props.saveArticle}/>
+        <ArticleItem article = {props.data.selectedArticle} handleDelete = {props.handleDelete} handleEdit = {props.handleEdit} allProps = {props.data} saveArticle = {props.saveArticle}/>
       </div>
    )
   }
@@ -34,10 +35,7 @@ if (props.data.newArticle != false) {
 
   return (
     <div>
-    <ul>
-    <li> <ArticleSummary article = {articles} /> </li>
-    </ul>
-    <button onClick = {props.newArticle }> Add Article </button>
+      <ArticleSummary article = {articles} />
     </div>
  )
 }
