@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleText = (props) => {
   return (
-    <div>
+    <div className="article-text">
     <p> {props.text} </p>
     </div>
   )

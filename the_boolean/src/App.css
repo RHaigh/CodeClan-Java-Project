@@ -71,6 +71,14 @@
 
 .article {
   text-align: center;
+  margin-left:10%;
+  margin-right:10%;
+  font-size:1.2vw;
+}
+
+.article-text{
+  font-size:1.3vw;
+
 }
 
 .article-list {
