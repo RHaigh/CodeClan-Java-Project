@@ -1,20 +1,26 @@
 import React, {Component} from "react";
-import MainHeader from '../components/MainHeader.js'
-import NavBar from '../components/NavBar.js'
-import ArticleList from '../components/ArticleList.js'
+import MainHeader from '../components/MainHeader.js';
+import NavBar from '../components/NavBar.js';
+import ArticleList from '../components/ArticleList.js';
 import Request from "../helpers/Request.js";
+
 class NewsBox extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      selectedArticle: null
+      selectedArticle: null,
+      editedArticle: null,
+      newArticle: false
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.handleCategoryClick = this.handleCategoryClick.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
+    this.handleEditArticle = this.handleEditArticle.bind(this);
+    this.saveArticle = this.saveArticle.bind(this);
+    this.newArticle = this.newArticle.bind(this);
   }
 
   componentDidMount() {
@@ -22,7 +28,6 @@ class NewsBox extends Component {
   }
 
   handleArticleClick(articleNumber) {
-    // console.log(articleNumber);
     this.setState({selectedArticle: this.state.data[articleNumber]})
   }
 
@@ -51,6 +56,27 @@ class NewsBox extends Component {
     })
   }
 
+  handleEditArticle(articleNumber) {
+    this.setState({editedArticle: this.state.data[articleNumber]})
+  }
+
+  saveArticle(article) {
+    const request = new Request()
+    const url = "articles/" + article.id
+    request.patch(url, article)
+    .then ((data) => {
+      this.setState({selectedArticle: null});
+      this.setState({editedArticle: null});
+      this.pageRefreshToAllArticles();
+
+    })
+  }
+
+    newArticle() {
+      console.log("log of new article")
+    this.setState({newArticle: true})
+  }
+
   deleteArticle(articleId) {
     let request = new Request()
     const url = "articles/" + articleId
@@ -66,7 +92,7 @@ class NewsBox extends Component {
       <div>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
       <NavBar handleCategoryClick={this.handleCategoryClick}/>
-      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle}/>
+      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle} handleEdit = {this.handleEditArticle} saveArticle = {this.saveArticle} newArticle = {this.newArticle}/>
       </div>
     )
   }

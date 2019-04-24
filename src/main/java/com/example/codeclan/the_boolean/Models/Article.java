@@ -31,7 +31,7 @@ public class Article implements Serializable {
 
     @JsonIgnoreProperties("articles")
     @ManyToOne
-    @JoinColumn(name = "journalist_id", nullable = false)
+    @JoinColumn(name = "journalist_id", nullable = true)
     Journalist journalist;
 
     public Article(String title, String text, String category, String datePublished, Journalist journalist, String image) {
