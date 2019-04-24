@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleDate = (props) => {
   return (
-    <div>
+    <div classname = "date-text">
     <p> {props.date} </p>
     </div>
   )

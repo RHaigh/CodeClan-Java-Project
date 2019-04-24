@@ -10,7 +10,7 @@ const ArticleList = (props) => {
     return (
       <div onClick = {(evt) => {props.handleArticleClick(index)}} key = {index} >
       <h3> {article.title} </h3>
-      <h3> {article.datePublished}</h3>
+      <p> {article.datePublished}</p>
       <img src = {article.image} height = "200px" ></img>
       </div>
     )

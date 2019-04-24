@@ -1,4 +1,4 @@
-/* .App {
+ /*.App {
   text-align: center;
 }
 
@@ -42,6 +42,14 @@
 
 }
 
+.date-text{
+  font-size:9px;
+}
+
+.add-article{
+  margin-left:50px;
+}
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -61,9 +69,14 @@
   background-color: red;
 }
 
+.article {
+  text-align: center;
+}
+
 .article-list {
   /* display: grid; */
   /* grid-template-columns: repeat(4, 1fr); */
   grid-column: auto;
   grid-row: auto;
+
 }

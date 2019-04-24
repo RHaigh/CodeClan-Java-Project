@@ -20,15 +20,15 @@ const journalistOptions = props.newArticle.data.journalists.map((journalist, ind
 });
 
   return (
-    <div>
-    <form onSubmit = {handleSubmit} >
+    <div className="add-article">
+    <form id="userForm" onSubmit = {handleSubmit} >
     Title:
     <br/>
     <input type = "text" placeholder = "Add a title" name = "title" />
     <br/>
     Text:
     <br/>
-    <input type = "text" placeholder = "Add some text" name = "text" />
+    <textarea name="comment" form="userForm">Enter text here...</textarea>
     <br/>
     Date:
     <br/>
