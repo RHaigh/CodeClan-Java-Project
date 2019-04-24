@@ -27,7 +27,7 @@ const ArticleList = (props) => {
 if (props.data.newArticle != false) {
   return (
     <div>
-    <ArticleForm newArticle = {props}/>
+    <ArticleForm newArticle = {props} createArticle = {props.createArticle}/>
     </div>
   )
 }

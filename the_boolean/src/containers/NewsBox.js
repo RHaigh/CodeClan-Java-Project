@@ -23,6 +23,8 @@ class NewsBox extends Component {
     this.saveArticle = this.saveArticle.bind(this);
     this.newArticle = this.newArticle.bind(this);
     this.getJournalists = this.getJournalists.bind(this);
+    this.createArticle = this.createArticle.bind(this);
+
   }
 
   componentDidMount() {
@@ -48,7 +50,7 @@ class NewsBox extends Component {
     })
   }
 
-    getJournalists() {
+  getJournalists() {
     let request = new Request()
     const url = "/journalists/";
     request.get(url)
@@ -80,13 +82,24 @@ class NewsBox extends Component {
       this.setState({selectedArticle: null});
       this.setState({editedArticle: null});
       this.pageRefreshToAllArticles();
-
     })
   }
 
-    newArticle() {
-      console.log("log of new article")
+  newArticle() {
+    console.log("log of new article")
     this.setState({newArticle: true})
+  }
+
+  createArticle(article) {
+    const request = new Request()
+    const url = "articles/" + article.journalist
+    request.post(url, article)
+    .then ((data) => {
+      this.setState({selectedArticle: null});
+      this.setState({editedArticle: null});
+      this.pageRefreshToAllArticles();
+      this.setState({newArticle: false})
+    })
   }
 
   deleteArticle(articleId) {
@@ -104,7 +117,7 @@ class NewsBox extends Component {
       <div>
       <MainHeader handleHeaderClick={this.handleHeaderClick}/>
       <NavBar handleCategoryClick={this.handleCategoryClick}/>
-      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle} handleEdit = {this.handleEditArticle} saveArticle = {this.saveArticle} newArticle = {this.newArticle}/>
+      <ArticleList test = "renderNewsBox" handleArticleClick = {this.handleArticleClick} data = {this.state} handleDelete = {this.deleteArticle} handleEdit = {this.handleEditArticle} saveArticle = {this.saveArticle} newArticle = {this.newArticle} createArticle = {this.createArticle}/>
       </div>
     )
   }

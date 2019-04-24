@@ -12,7 +12,7 @@ function handleSubmit(evt) {
     "image": "",
     "journalist": evt.target.journalist.value
   }
-  this.props.newArticle.data.saveArticle(article);
+  props.createArticle(article);
 }
 const journalistOptions = props.newArticle.data.journalists.map((journalist, index) => {
   return <option key = {index} value = {journalist.id} > {journalist.name}</option>
