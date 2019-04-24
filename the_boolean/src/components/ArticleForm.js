@@ -9,18 +9,18 @@ function handleSubmit(evt) {
     "title": evt.target.title.value,
     "text": evt.target.text.value,
     "datePublished": evt.target.datePublished.value,
-    "image": evt.target.image.value,
+    "image": "",
     "journalist": evt.target.journalist.value
   }
-  this.props.saveArticle(article);
+  this.props.newArticle.data.saveArticle(article);
 }
-const journalistOptions = props.journalists.map((journalist, index) => {
-  return <option key = {index} value = {journalist._links.self.href}>{journalist.name}</option>
+const journalistOptions = props.newArticle.data.journalists.map((journalist, index) => {
+  return <option key = {index} value = {journalist.id} > {journalist.name}</option>
 });
 
   return (
     <div>
-    <form onSubmit = {this.handleSubmit} >
+    <form onSubmit = {handleSubmit} >
     <input type = "text" placeholder = "Add a title" name = "title" />
     <br/>
     <input type = "text" placeholder = "Add some text" name = "text" />
@@ -34,7 +34,6 @@ const journalistOptions = props.journalists.map((journalist, index) => {
     </form>
     </div>
   )
-
 }
 
 export default ArticleForm;

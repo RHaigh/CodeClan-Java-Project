@@ -12,7 +12,8 @@ class NewsBox extends Component {
       data: [],
       selectedArticle: null,
       editedArticle: null,
-      newArticle: false
+      newArticle: false,
+      journalists: []
     };
     this.handleArticleClick = this.handleArticleClick.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
@@ -21,10 +22,12 @@ class NewsBox extends Component {
     this.handleEditArticle = this.handleEditArticle.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
     this.newArticle = this.newArticle.bind(this);
+    this.getJournalists = this.getJournalists.bind(this);
   }
 
   componentDidMount() {
     this.pageRefreshToAllArticles();
+    this.getJournalists();
   }
 
   handleArticleClick(articleNumber) {
@@ -42,6 +45,15 @@ class NewsBox extends Component {
     request.get(url)
     .then((data) => {
       this.setState({data: data})
+    })
+  }
+
+    getJournalists() {
+    let request = new Request()
+    const url = "/journalists/";
+    request.get(url)
+    .then((data) => {
+      this.setState({journalists: data})
     })
   }
 
