@@ -28,7 +28,7 @@ const journalistOptions = props.newArticle.data.journalists.map((journalist, ind
     <br/>
     Text:
     <br/>
-    <textarea name="comment" form="userForm">Enter text here...</textarea>
+    <textarea name="text" form="userForm">Enter text here...</textarea>
     <br/>
     Date:
     <br/>
